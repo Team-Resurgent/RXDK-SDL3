@@ -23,6 +23,9 @@ static bool VideoSupportsWindowPositioning(void)
 	if (SDL_strcmp(video_driver, "wayland") == 0) {
 		return false;
 	}
+	if (SDL_strcmp(video_driver, "xboxog") == 0) {
+		return false;
+	}
 	return true;
 }
 
@@ -37,6 +40,9 @@ static bool VideoSupportsWindowResizing(void)
 		return false;
 	}
 	if (SDL_strcmp(video_driver, "uikit") == 0) {
+		return false;
+	}
+	if (SDL_strcmp(video_driver, "xboxog") == 0) {
 		return false;
 	}
 	return true;

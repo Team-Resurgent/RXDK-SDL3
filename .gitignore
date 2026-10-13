@@ -171,3 +171,7 @@ test/torturethread
 docs/output
 SDL.tag
 doxygen_warn.txt
+
+# RXDK (original Xbox) build output
+/out/
+/xboxog/**/out/

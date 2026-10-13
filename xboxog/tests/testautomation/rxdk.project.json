@@ -1,0 +1,64 @@
+{
+  "name": "SDLTestAutomation",
+  "configuration": "release",
+  "sources": [
+    "../../../test/testautomation.c",
+    "../../../test/testautomation_audio.c",
+    "../../../test/testautomation_blit.c",
+    "../../../test/testautomation_clipboard.c",
+    "../../../test/testautomation_events.c",
+    "../../../test/testautomation_guid.c",
+    "../../../test/testautomation_hints.c",
+    "../../../test/testautomation_images.c",
+    "../../../test/testautomation_intrinsics.c",
+    "../../../test/testautomation_iostream.c",
+    "../../../test/testautomation_joystick.c",
+    "../../../test/testautomation_keyboard.c",
+    "../../../test/testautomation_log.c",
+    "../../../test/testautomation_main.c",
+    "../../../test/testautomation_math.c",
+    "../../../test/testautomation_mouse.c",
+    "../../../test/testautomation_pixels.c",
+    "../../../test/testautomation_platform.c",
+    "../../../test/testautomation_properties.c",
+    "../../../test/testautomation_rect.c",
+    "../../../test/testautomation_render.c",
+    "../../../test/testautomation_sdltest.c",
+    "../../../test/testautomation_stdlib.c",
+    "../../../test/testautomation_subsystems.c",
+    "../../../test/testautomation_surface.c",
+    "../../../test/testautomation_time.c",
+    "../../../test/testautomation_timer.c",
+    "../../../test/testautomation_video.c",
+    "../../../src/test/SDL_test_assert.c",
+    "../../../src/test/SDL_test_common.c",
+    "../../../src/test/SDL_test_compare.c",
+    "../../../src/test/SDL_test_crc32.c",
+    "../../../src/test/SDL_test_font.c",
+    "../../../src/test/SDL_test_fuzzer.c",
+    "../../../src/test/SDL_test_harness.c",
+    "../../../src/test/SDL_test_log.c",
+    "../../../src/test/SDL_test_md5.c",
+    "../../../src/test/SDL_test_memory.c",
+    "xbox_testenv.c"
+  ],
+  "includePaths": [
+    "../../../test"
+  ],
+  "projectReferences": [
+    "../../.."
+  ],
+  "compileFlags": [
+    "-Wno-pragma-pack"
+  ],
+  "outputDir": "out",
+  "createIso": true,
+  "imageBuild": {
+    "stackSize": 262144,
+    "debug": true,
+    "noLogo": true,
+    "noLibWarn": true,
+    "testId": "0x5344b001",
+    "testName": "SDLTestAutomation"
+  }
+}
