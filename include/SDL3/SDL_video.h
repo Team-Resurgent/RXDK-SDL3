@@ -1617,6 +1617,12 @@ extern SDL_DECLSPEC SDL_Window * SDLCALL SDL_GetWindowParent(SDL_Window *window)
  * - `SDL_PROP_WINDOW_EMSCRIPTEN_KEYBOARD_ELEMENT_STRING`: the keyboard
  *   element that associates keyboard events to this window
  *
+ * On the original Xbox (RXDK):
+ *
+ * - `SDL_PROP_WINDOW_XBOXOG_D3DDEVICE_POINTER`: the Direct3D 8 device
+ *   (`D3DDevice *`) the window presents with. The console has exactly one; it
+ *   lives as long as the window and is reset when the display mode changes.
+ *
  * \param window the window to query.
  * \returns a valid property ID on success or 0 on failure; call
  *          SDL_GetError() for more information.
@@ -1664,6 +1670,7 @@ extern SDL_DECLSPEC SDL_PropertiesID SDLCALL SDL_GetWindowProperties(SDL_Window 
 #define SDL_PROP_WINDOW_X11_WINDOW_NUMBER                           "SDL.window.x11.window"
 #define SDL_PROP_WINDOW_EMSCRIPTEN_CANVAS_ID_STRING                 "SDL.window.emscripten.canvas_id"
 #define SDL_PROP_WINDOW_EMSCRIPTEN_KEYBOARD_ELEMENT_STRING          "SDL.window.emscripten.keyboard_element"
+#define SDL_PROP_WINDOW_XBOXOG_D3DDEVICE_POINTER                    "SDL.window.xboxog.d3ddevice"
 
 /**
  * Get the window flags.
