@@ -360,6 +360,11 @@ _m_prefetch(void *__P)
 #endif
 
 #if defined(__x86_64__) || defined(_M_X64) || defined(__i386__) || defined(_M_IX86)
+/* Clang 20 reimplemented the MMX intrinsics with SSE2 instructions; they are
+   no longer available when targeting a CPU without SSE2 (e.g. Pentium III). */
+# if defined(__clang__) && (__clang_major__ >= 20) && !defined(__SSE2__) && !defined(SDL_DISABLE_MMX)
+#  define SDL_DISABLE_MMX
+# endif
 # if ((defined(_MSC_VER) && !defined(_M_X64)) || defined(__MMX__) || defined(SDL_HAS_TARGET_ATTRIBS)) && !defined(SDL_DISABLE_MMX)
 #  define SDL_MMX_INTRINSICS 1
 #  include <mmintrin.h>
