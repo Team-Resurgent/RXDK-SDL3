@@ -126,8 +126,10 @@ static struct
     { "US-ASCII", ENCODING_ASCII },
     { "8859-1", ENCODING_LATIN1 },
     { "ISO-8859-1", ENCODING_LATIN1 },
-#if defined(SDL_PLATFORM_WINDOWS) || defined(SDL_PLATFORM_OS2)
-    { "WCHAR_T", ENCODING_UTF16LE },
+    // Follow wchar_t's actual size, as SDL_string.c does: 16-bit wchar_t is
+    // not limited to Windows (e.g. the original Xbox).
+#if (defined(__SIZEOF_WCHAR_T__) && (__SIZEOF_WCHAR_T__ == 2)) || defined(SDL_PLATFORM_WINDOWS) || defined(SDL_PLATFORM_OS2)
+    { "WCHAR_T", ENCODING_UTF16NATIVE },
 #else
     { "WCHAR_T", ENCODING_UCS4NATIVE },
 #endif
