@@ -228,6 +228,17 @@
         */
         #define SDL_MAIN_AVAILABLE
 
+    #elif defined(SDL_PLATFORM_XBOXOG)
+        /*
+          On the original Xbox, the title's main() gets no command line, and
+          there is nothing to return to when it ends. SDL provides a main
+          function that passes a default argv and launches the dashboard
+          when the app's main function returns.
+
+          If you provide this yourself, you may define SDL_MAIN_HANDLED
+        */
+        #define SDL_MAIN_AVAILABLE
+
     #endif
 #endif /* SDL_MAIN_HANDLED */
 

@@ -130,7 +130,7 @@ extern "C" {
     /* Don't include intrin.h here because it contains C++ code */
     extern void __cdecl __debugbreak(void);
     #define SDL_TriggerBreakpoint() __debugbreak()
-#elif defined(__MINGW32__)
+#elif defined(__MINGW32__) && !defined(SDL_PLATFORM_XBOXOG) /* RXDK targets windows-gnu but ships no MinGW headers */
     #include <_mingw.h>
     #ifdef __MINGW64_VERSION_MAJOR
     #include <intrin.h>

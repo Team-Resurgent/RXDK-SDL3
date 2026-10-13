@@ -822,6 +822,8 @@ const char *SDL_GetPlatform(void)
     return "PlayStation Vita";
 #elif defined(SDL_PLATFORM_3DS)
     return "Nintendo 3DS";
+#elif defined(SDL_PLATFORM_XBOXOG)
+    return "Xbox";
 #elif defined(SDL_PLATFORM_HURD)
     return "GNU/Hurd";
 #elif defined(__managarm__)

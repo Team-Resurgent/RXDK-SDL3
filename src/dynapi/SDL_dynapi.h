@@ -65,6 +65,8 @@
 #define SDL_DYNAMIC_API 0 // devkitARM doesn't support dynamic linking
 #elif defined(SDL_PLATFORM_NGAGE)
 #define SDL_DYNAMIC_API 0
+#elif defined(SDL_PLATFORM_XBOXOG)
+#define SDL_DYNAMIC_API 0 // XBEs are statically linked; there is no dynamic loader
 #elif defined(DYNAPI_NEEDS_DLOPEN) && !defined(HAVE_DLOPEN)
 #define SDL_DYNAMIC_API 0 // we need dlopen(), but don't have it....
 #endif

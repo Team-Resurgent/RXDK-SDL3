@@ -39,6 +39,8 @@
 #include "SDL_build_config_wingdk.h"
 #elif defined(SDL_PLATFORM_XBOXONE) || defined(SDL_PLATFORM_XBOXSERIES)
 #include "SDL_build_config_xbox.h"
+#elif defined(SDL_PLATFORM_XBOXOG)
+#include "SDL_build_config_xboxog.h"
 #elif defined(SDL_PLATFORM_MACOS)
 #include "SDL_build_config_macos.h"
 #elif defined(SDL_PLATFORM_IOS)

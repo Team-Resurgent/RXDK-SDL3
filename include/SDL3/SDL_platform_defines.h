@@ -317,7 +317,20 @@
 #define SDL_PLATFORM_CYGWIN 1
 #endif
 
-#if (defined(_WIN32) || defined(SDL_PLATFORM_CYGWIN)) && !defined(__NGAGE__)
+#if defined(_XBOX) && !defined(_GAMING_XBOX) && !defined(_GAMING_XBOX_XBOXONE) && !defined(_GAMING_XBOX_SCARLETT)
+
+/**
+ * A preprocessor macro that is only defined if compiling for the original
+ * Microsoft Xbox (2001) with the RXDK toolchain.
+ *
+ * The RXDK compiler targets i686-pc-windows-gnu, so `_WIN32` is predefined,
+ * but the console has no Win32 subsystem; this platform is deliberately not
+ * SDL_PLATFORM_WINDOWS.
+ */
+#define SDL_PLATFORM_XBOXOG 1
+#endif
+
+#if (defined(_WIN32) || defined(SDL_PLATFORM_CYGWIN)) && !defined(__NGAGE__) && !defined(SDL_PLATFORM_XBOXOG)
 
 /**
  * A preprocessor macro that is only defined if compiling for Windows.
