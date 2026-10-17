@@ -14,7 +14,7 @@
 
 This is [SDL 3.4.18](https://www.libsdl.org/) with an original Xbox (2001) platform, `xboxog`, added. A title
 written against SDL's API builds into an XBE with the RXDK toolchain and runs on the console and on xemu.
-[LEGO Island (isle-portable)](https://github.com/Team-Resurgent/isle-portable) uses it for its original Xbox port.
+[LEGO Island (RXDK-LEGO-Island)](https://github.com/Team-Resurgent/RXDK-LEGO-Island) uses it for its original Xbox port.
 
 ## What works
 
