@@ -29,6 +29,9 @@
 
 #include <xtl.h>
 
+// Controller ports; gamepads and USB mice report on the same port bits.
+#define XBOXOG_PORT_COUNT 4
+
 // Initialize the XAPI input device subsystem exactly once (XInitDevices may only be called once per title).
 extern void XBOXOG_InitDevices(void);
 

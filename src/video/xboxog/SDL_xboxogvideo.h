@@ -49,6 +49,11 @@ struct SDL_WindowData
 // Creates the D3D device for the window, or resets it to the window's display mode.
 extern bool XBOXOG_ApplyWindowMode(SDL_VideoDevice *_this, SDL_Window *window);
 
+// USB mice (SDL_xboxogmouse.c): opened as they are plugged in, polled from PumpEvents.
+extern void XBOXOG_InitMouse(void);
+extern void XBOXOG_PollMouse(void);
+extern void XBOXOG_QuitMouse(void);
+
 extern bool XBOXOG_CreateWindowFramebuffer(SDL_VideoDevice *_this, SDL_Window *window, SDL_PixelFormat *format, void **pixels, int *pitch);
 extern bool XBOXOG_UpdateWindowFramebuffer(SDL_VideoDevice *_this, SDL_Window *window, const SDL_Rect *rects, int numrects);
 extern void XBOXOG_DestroyWindowFramebuffer(SDL_VideoDevice *_this, SDL_Window *window);

@@ -128,6 +128,8 @@ static bool XBOXOG_VideoInit(SDL_VideoDevice *_this)
         SDL_free(modedata);
         return false;
     }
+
+    XBOXOG_InitMouse();
     return true;
 }
 
@@ -135,6 +137,7 @@ static void XBOXOG_VideoQuit(SDL_VideoDevice *_this)
 {
     SDL_VideoData *data = _this->internal;
 
+    XBOXOG_QuitMouse();
     if (data->d3d) {
         IDirect3D8_Release(data->d3d);
         data->d3d = NULL;
@@ -272,6 +275,7 @@ static SDL_FullscreenResult XBOXOG_SetWindowFullscreen(SDL_VideoDevice *_this, S
 static void XBOXOG_PumpEvents(SDL_VideoDevice *_this)
 {
     // Controllers are polled by the joystick subsystem; there are no window events.
+    XBOXOG_PollMouse();
 }
 
 static void XBOXOG_DeleteDevice(SDL_VideoDevice *device)

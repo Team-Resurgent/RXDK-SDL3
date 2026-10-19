@@ -28,8 +28,6 @@
 #include "../SDL_sysjoystick.h"
 #include "../../core/xboxog/SDL_xboxog.h"
 
-#define XBOXOG_PORT_COUNT 4
-
 // Joystick buttons, in the order the gamepad mapping below refers to them.
 enum
 {
