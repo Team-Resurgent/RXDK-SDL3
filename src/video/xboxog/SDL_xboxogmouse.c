@@ -95,9 +95,17 @@ static void XBOXOG_CloseMouse(int port)
     m->buttons = 0;
 }
 
+// The mouse only ever reports relative motion, which is what relative mode wants:
+// SDL then stops clamping the pointer to the window and reports the raw motion.
+static bool XBOXOG_SetRelativeMouseMode(bool enabled)
+{
+    return true;
+}
+
 void XBOXOG_InitMouse(void)
 {
     XBOXOG_InitDevices();
+    SDL_GetMouse()->SetRelativeMouseMode = XBOXOG_SetRelativeMouseMode;
 
     SDL_zeroa(mice);
     centered = false;

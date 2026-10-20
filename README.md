@@ -1,6 +1,6 @@
 # RXDK SDL3
 
-<p align="center"><b>SDL 3 for the original Xbox — video, audio, controllers, threads and files on the console, built with the open RXDK SDK</b></p>
+<p align="center"><b>SDL 3 for the original Xbox — video, audio, controllers, mouse, keyboard, threads and files on the console, built with the open RXDK SDK</b></p>
 
 <p align="center">
   <a href="https://github.com/Team-Resurgent/RXDK-SDL3/blob/main/LICENSE.txt"><img src="https://img.shields.io/badge/License-zlib-blue.svg" alt="License: zlib"></a>
@@ -23,13 +23,15 @@ written against SDL's API builds into an XBE with the RXDK toolchain and runs on
 | Video | Direct3D 8: one full-screen window in a mode from the console's video settings, with SDL's software renderer and window framebuffers on top |
 | Audio | DirectSound: 16-bit PCM, up to stereo at 48 kHz |
 | Joystick / gamepad | XInput: four controller ports, hot-plug, a gamepad mapping, rumble |
+| Mouse | XInput's USB mouse in any controller port: motion, three buttons and the wheel, hot-plug |
+| Keyboard | XAPI's USB keyboard queue: key-down/up and repeat as SDL scancodes, text input, hot-plug |
 | Threads, mutexes, semaphores, TLS | Kernel threads and critical sections |
 | Timers | XAPI's performance counter |
 | Filesystem | The console's drives (see below) |
 | Locale, time | The dashboard's language and time zone settings |
 
 Not available on this platform: SDL's GPU API, HIDAPI, cameras, processes, loadable objects, dialogs and the
-tray. Mouse and keyboard are not supported yet.
+tray.
 
 ## Platform notes
 
@@ -46,15 +48,21 @@ tray. Mouse and keyboard are not supported yet.
   `SDL_GetUserFolder(SDL_FOLDER_SAVEDGAMES)` is `U:\`.
 - **Controllers:** A, B, X, Y, Black and White are pressure sensitive on the console. SDL reports them as buttons.
   Black and White map to the shoulder buttons, and the triggers are axes.
+- **Mouse and keyboard:** USB devices plug into a controller port through a port-to-USB adapter. There is no
+  system cursor, so a title draws its own; SDL keeps the pointer position from the mouse's motion, clamped to the
+  window. XAPI has one keystroke queue for every keyboard, so SDL reports a single keyboard while any is plugged
+  in.
 - **main():** SDL provides `main()` (including with `SDL_MAIN_USE_CALLBACKS`). An Xbox title has no OS to return
   to, so when the app's main function finishes, the console returns to the dashboard.
 
 ## Building
 
-SDL builds with the RXDK engine from `rxdk.project.json`, as a static library:
+SDL builds with the RXDK engine from `rxdk.project.json`, as a static library. The engine, `Rxdk.Cli`, is in
+the tools folder RXDK installs: `C:\ProgramData\RXDK\tools` on Windows, `~/.local/share/rxdk/tools` on Linux,
+`~/Library/Application Support/RXDK/tools` on macOS. On Windows:
 
 ```bash
-rxdk build --project-root .
+"C:/ProgramData/RXDK/tools/Rxdk.Cli.exe" build --project-root .
 ```
 
 The manifest's source list is generated. Re-run this after adding or removing SDL source files:
@@ -81,10 +89,10 @@ Reference this repository from the title's `rxdk.project.json`. SDL's include di
 `xboxog/tests/testautomation` builds SDL's `testautomation` suite as an Xbox title:
 
 ```bash
-rxdk build --project-root xboxog/tests/testautomation
+"C:/ProgramData/RXDK/tools/Rxdk.Cli.exe" build --project-root xboxog/tests/testautomation
 ```
 
-Known failures: relative mouse mode (no mouse support yet), and two IOStream tests that open a file with
+Known failures: two IOStream tests that open a file with
 exclusive create (`"wx"`), which the console's C library does not yet refuse for an existing file.
 
 ## Upstream and license
