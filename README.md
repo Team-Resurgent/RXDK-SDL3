@@ -92,8 +92,8 @@ Reference this repository from the title's `rxdk.project.json`. SDL's include di
 "C:/ProgramData/RXDK/tools/Rxdk.Cli.exe" build --project-root xboxog/tests/testautomation
 ```
 
-Known failures: two IOStream tests that open a file with
-exclusive create (`"wx"`), which the console's C library does not yet refuse for an existing file.
+With RXDK 1.3.12 or later it passes on xemu with no failures. The skipped tests are the SSE2-and-later intrinsics, which the
+console's Pentium III doesn't have, and render and video features the port doesn't provide.
 
 ## Upstream and license
 
