@@ -54,6 +54,11 @@ extern void XBOXOG_InitMouse(void);
 extern void XBOXOG_PollMouse(void);
 extern void XBOXOG_QuitMouse(void);
 
+// USB keyboards (SDL_xboxogkeyboard.c): XAPI's keystroke queue, drained from PumpEvents.
+extern void XBOXOG_InitKeyboard(void);
+extern void XBOXOG_PollKeyboard(void);
+extern void XBOXOG_QuitKeyboard(void);
+
 extern bool XBOXOG_CreateWindowFramebuffer(SDL_VideoDevice *_this, SDL_Window *window, SDL_PixelFormat *format, void **pixels, int *pitch);
 extern bool XBOXOG_UpdateWindowFramebuffer(SDL_VideoDevice *_this, SDL_Window *window, const SDL_Rect *rects, int numrects);
 extern void XBOXOG_DestroyWindowFramebuffer(SDL_VideoDevice *_this, SDL_Window *window);

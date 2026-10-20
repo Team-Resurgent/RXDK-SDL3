@@ -179,6 +179,7 @@
     "src/thread/xboxog/SDL_systls.c",
     "src/timer/xboxog/SDL_systimer.c",
     "src/video/xboxog/SDL_xboxogframebuffer.c",
+    "src/video/xboxog/SDL_xboxogkeyboard.c",
     "src/video/xboxog/SDL_xboxogmouse.c",
     "src/video/xboxog/SDL_xboxogvideo.c",
     "src/thread/generic/SDL_syscond.c",
